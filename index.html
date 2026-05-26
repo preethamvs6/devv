@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alex Mercer | DevOps & Cloud Infrastructure Engineer</title>
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Portfolio of Alex Mercer, a Passionate DevOps & Cloud Infrastructure Engineer specializing in Jenkins, Docker, AWS, and modern automated CI/CD pipelines.">
+  <meta name="keywords" content="DevOps, Cloud Engineer, CI/CD, Jenkins, Docker, AWS, Portfilio, Infrastructure as Code">
+  <meta name="author" content="Alex Mercer">
+  
+  <!-- Modern Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,600;1,400&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- CSS Link -->
+  <link rel="stylesheet" href="./src/style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#" class="nav-logo">
+        <span class="logo-accent">&lt;</span>Alex<span class="logo-accent">.DevOps /&gt;</span>
+      </a>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#pipeline-status" class="nav-link">Pipeline Dashboard</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button id="theme-toggle" class="theme-btn" aria-label="Toggle dark/light mode">
+          <!-- Light Mode Icon (Sun) -->
+          <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          <!-- Dark Mode Icon (Moon) -->
+          <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Open mobile menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero" id="hero">
+    <div class="hero-bg-overlay"></div>
+    <div class="hero-container">
+      <div class="hero-content">
+        <span class="hero-badge">Pipeline Status: <span class="badge-active">● Active & Deployed</span></span>
+        <h1 class="hero-title">Automating the Cloud, <br><span class="gradient-text">One Commit at a Time</span></h1>
+        <p class="hero-subtitle">I'm <strong>Alex Mercer</strong>, a DevOps Engineer specializing in building robust CI/CD pipelines, containerizing applications, and orchestrating highly available cloud architectures on AWS.</p>
+        <div class="hero-cta-group">
+          <a href="#projects" class="btn btn-primary">View Projects</a>
+          <a href="#pipeline-status" class="btn btn-secondary">Inspect Pipeline</a>
+        </div>
+      </div>
+      
+      <!-- Interactive Terminal -->
+      <div class="terminal-wrapper">
+        <div class="terminal-header">
+          <div class="terminal-dots">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+          </div>
+          <div class="terminal-title">alex@devops-srv: ~</div>
+          <div class="terminal-copy-btn" id="terminal-reset" title="Reset Terminal">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rotate-ccw"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path></svg>
+          </div>
+        </div>
+        <div class="terminal-body" id="terminal-body">
+          <div class="terminal-line"><span class="t-comment"># Welcome to the interactive DevOps portfolio!</span></div>
+          <div class="terminal-line"><span class="t-comment"># Try typing commands below or click quick shortcuts:</span></div>
+          <div class="terminal-shortcuts">
+            <button class="t-shortcut" data-cmd="help">help</button>
+            <button class="t-shortcut" data-cmd="cat info.txt">cat info.txt</button>
+            <button class="t-shortcut" data-cmd="docker ps">docker ps</button>
+            <button class="t-shortcut" data-cmd="jenkins run">jenkins run</button>
+          </div>
+          <div class="terminal-output" id="terminal-output">
+            <div class="output-row">Last login: Tue May 26 19:27:35 on ec2-ubuntu-t2-micro</div>
+            <div class="output-row">Type 'help' to see list of custom developer commands.</div>
+          </div>
+          <div class="terminal-input-line">
+            <span class="terminal-prompt">alex@devops-srv:~$</span>
+            <input type="text" id="terminal-input" autocomplete="off" autofocus placeholder="Type a command...">
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- About Section -->
+  <section class="about section" id="about">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">About Me</span>
+        <h2 class="section-title">Bridging Development & Operations</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-card text-card">
+          <p>I am a highly driven Cloud & DevOps enthusiast who is passionate about erasing the boundary between writing code and deploying it. I focus on optimizing release velocity, maintaining high system availability, and implementing security-hardened container infrastructures.</p>
+          <p>My career philosophy centers on <strong>"Infrastructure as Code"</strong> and <strong>"Automate Everything"</strong>. By reducing human overhead in release cycles, developers can build faster, and enterprises can deploy safer.</p>
+          
+          <div class="metrics-grid">
+            <div class="metric-item">
+              <span class="metric-num">99.9%</span>
+              <span class="metric-label">Uptime Focused</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-num">10x</span>
+              <span class="metric-label">Deployment Velocity</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-num">&lt; 5m</span>
+              <span class="metric-label">Pipeline Run Time</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="about-card visual-card">
+          <h3 class="card-subtitle">DevOps Philosophy</h3>
+          <ul class="philosophy-list">
+            <li>
+              <div class="icon-wrapper">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+              </div>
+              <div>
+                <h4>Continuous Acceleration</h4>
+                <p>Ensuring reliable, automated feedback loops for fast product iteration.</p>
+              </div>
+            </li>
+            <li>
+              <div class="icon-wrapper">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>
+              </div>
+              <div>
+                <h4>Immutable Infrastructure</h4>
+                <p>Deploying application components as standardized, self-contained Docker containers.</p>
+              </div>
+            </li>
+            <li>
+              <div class="icon-wrapper">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.957 11.957 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+              </div>
+              <div>
+                <h4>Proactive Health Checking</h4>
+                <p>Automated pipeline verification checks to stop faulty code before users notice it.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="skills section" id="skills">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Stack & Competencies</span>
+        <h2 class="section-title">Core DevOps Toolbelt</h2>
+      </div>
+      
+      <div class="skills-grid">
+        <!-- CI/CD & Orchestration -->
+        <div class="skills-card">
+          <div class="skills-card-header">
+            <span class="card-icon">⚡</span>
+            <h3>CI/CD Orchestration</h3>
+          </div>
+          <ul class="skills-list">
+            <li><strong>Jenkins:</strong> Declarative pipelines, Shared Libraries, Webhook triggers, Credentials setup.</li>
+            <li><strong>GitHub:</strong> Version control, branch policies, Git Flow, Webhooks, pull requests.</li>
+            <li><strong>Git:</strong> Rebase, cherry-pick, merge conflict resolution, config control.</li>
+          </ul>
+        </div>
+
+        <!-- Containers & Cloud -->
+        <div class="skills-card">
+          <div class="skills-card-header">
+            <span class="card-icon">🐳</span>
+            <h3>Containers & Cloud</h3>
+          </div>
+          <ul class="skills-list">
+            <li><strong>Docker:</strong> Multistage Dockerfiles, Image optimization, Docker-Compose, Network bridges.</li>
+            <li><strong>DockerHub:</strong> Secure registry, tags, auto-build hooks, access tokens.</li>
+            <li><strong>AWS (EC2):</strong> Security Groups, Key Pairs, IAM roles, Elastic IPs, VPC Subnets.</li>
+          </ul>
+        </div>
+
+        <!-- Linux & Infrastructure -->
+        <div class="skills-card">
+          <div class="skills-card-header">
+            <span class="card-icon">🐧</span>
+            <h3>Linux & Scripting</h3>
+          </div>
+          <ul class="skills-list">
+            <li><strong>Linux (Ubuntu):</strong> Bash scripting, Cron jobs, systemd services, SSH-key configurations.</li>
+            <li><strong>Networking:</strong> TCP/IP, Port forwarding, DNS routing, Nginx reverse proxy.</li>
+            <li><strong>Web Servers:</strong> Nginx, Apache HTTP, static content delivery, SSL configurations.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="projects section" id="projects">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">My Work</span>
+        <h2 class="section-title">Featured DevOps Deployments</h2>
+      </div>
+      
+      <div class="project-showcase">
+        <div class="project-media">
+          <!-- Premium visual concept showing the Pipeline Steps -->
+          <div class="pipeline-visual">
+            <div class="p-node done">
+              <span class="node-icon">✓</span>
+              <span class="node-text">Code Push</span>
+            </div>
+            <div class="p-line active"></div>
+            <div class="p-node done">
+              <span class="node-icon">✓</span>
+              <span class="node-text">Jenkins Build</span>
+            </div>
+            <div class="p-line active"></div>
+            <div class="p-node done">
+              <span class="node-icon">✓</span>
+              <span class="node-text">Docker Push</span>
+            </div>
+            <div class="p-line active"></div>
+            <div class="p-node done">
+              <span class="node-icon">✓</span>
+              <span class="node-text">EC2 Deployment</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="project-info">
+          <span class="project-tag">DevOps CI/CD Core</span>
+          <h3>Automated Static Portfolio CI/CD Pipeline</h3>
+          <p>A production-style CI/CD pipeline built from scratch to automate the packaging and deployment of this responsive, interactive portfolio website.</p>
+          <p>Every time a commit is pushed to the GitHub repository, a GitHub Webhook securely signals the Jenkins server hosted on AWS EC2. Jenkins immediately triggers a multi-stage Declarative Pipeline that lints assets, builds the static bundle using Vite, packs a secure Alpine-Nginx Docker image, pushes it to DockerHub, cleans the old running container on EC2, and runs the new deployment with zero-downtime scripting.</p>
+          
+          <div class="tech-tags">
+            <span class="tag">Jenkins</span>
+            <span class="tag">Docker</span>
+            <span class="tag">AWS EC2</span>
+            <span class="tag">DockerHub</span>
+            <span class="tag">Bash</span>
+            <span class="tag">Nginx</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pipeline Dashboard Mock Section -->
+  <section class="pipeline-status section" id="pipeline-status">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Live System Health</span>
+        <h2 class="section-title">Jenkins Pipeline Run Dashboard</h2>
+      </div>
+      
+      <!-- Premium Glass Dashboard -->
+      <div class="dashboard-card">
+        <div class="dashboard-header">
+          <div class="db-title">
+            <span class="status-pulse"></span>
+            <h4>Pipeline: portfolio-website-deploy</h4>
+          </div>
+          <div class="db-meta">
+            <span>Branch: <strong>main</strong></span>
+            <span>Build: <strong>#14</strong></span>
+          </div>
+        </div>
+        
+        <div class="pipeline-stages-grid">
+          <!-- Stage 1 -->
+          <div class="stage-card success">
+            <div class="stage-num">01</div>
+            <div class="stage-name">Checkout Code</div>
+            <div class="stage-time">1.2s</div>
+            <div class="stage-desc">Cloned repo from GitHub</div>
+          </div>
+          
+          <!-- Stage 2 -->
+          <div class="stage-card success">
+            <div class="stage-num">02</div>
+            <div class="stage-name">Install Deps</div>
+            <div class="stage-time">18.4s</div>
+            <div class="stage-desc">npm install completed</div>
+          </div>
+          
+          <!-- Stage 3 -->
+          <div class="stage-card success">
+            <div class="stage-num">03</div>
+            <div class="stage-name">Build Assets</div>
+            <div class="stage-time">4.7s</div>
+            <div class="stage-desc">Vite compiled build folder</div>
+          </div>
+          
+          <!-- Stage 4 -->
+          <div class="stage-card success">
+            <div class="stage-num">04</div>
+            <div class="stage-name">Docker Build</div>
+            <div class="stage-time">12.1s</div>
+            <div class="stage-desc">Built custom Nginx image</div>
+          </div>
+          
+          <!-- Stage 5 -->
+          <div class="stage-card success">
+            <div class="stage-num">05</div>
+            <div class="stage-name">Docker Push</div>
+            <div class="stage-time">8.9s</div>
+            <div class="stage-desc">Pushed tags to DockerHub</div>
+          </div>
+          
+          <!-- Stage 6 -->
+          <div class="stage-card success">
+            <div class="stage-num">06</div>
+            <div class="stage-name">Prune Containers</div>
+            <div class="stage-time">2.1s</div>
+            <div class="stage-desc">Cleaned deprecated containers</div>
+          </div>
+          
+          <!-- Stage 7 -->
+          <div class="stage-card success">
+            <div class="stage-num">07</div>
+            <div class="stage-name">Deploy Live</div>
+            <div class="stage-time">3.0s</div>
+            <div class="stage-desc">Docker container run on port 80</div>
+          </div>
+          
+          <!-- Stage 8 -->
+          <div class="stage-card success">
+            <div class="stage-num">08</div>
+            <div class="stage-name">Health Check</div>
+            <div class="stage-time">1.5s</div>
+            <div class="stage-desc">HTTP curl check validated (200 OK)</div>
+          </div>
+        </div>
+        
+        <div class="dashboard-footer">
+          <span class="success-log">✓ Pipeline completed successfully in 51.9 seconds.</span>
+          <a href="#projects" class="btn btn-secondary btn-sm" id="trigger-confetti">Test Web App</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact section" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Let's Connect</span>
+        <h2 class="section-title">Start a Cloud Conversation</h2>
+      </div>
+      
+      <div class="contact-grid">
+        <div class="contact-card info-card">
+          <h3>Get In Touch</h3>
+          <p>Interested in robust architectures, continuous automation, or collaborating on infrastructure optimization projects? Drop me a line!</p>
+          
+          <ul class="contact-links">
+            <li>
+              <span class="c-icon">📍</span>
+              <span>San Francisco, CA (Open to Remote)</span>
+            </li>
+            <li>
+              <span class="c-icon">✉️</span>
+              <a href="mailto:alex.mercer.devops@example.com">alex.mercer.devops@example.com</a>
+            </li>
+            <li>
+              <span class="c-icon">🔗</span>
+              <a href="https://linkedin.com" target="_blank">linkedin.com/in/alex-mercer-devops</a>
+            </li>
+            <li>
+              <span class="c-icon">🐙</span>
+              <a href="https://github.com" target="_blank">github.com/alex-mercer-devops</a>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="contact-card form-card">
+          <form id="contact-form" class="contact-form">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" required placeholder="John Doe">
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" required placeholder="john@example.com">
+            </div>
+            <div class="form-group">
+              <label for="msg">Message</label>
+              <textarea id="msg" required rows="5" placeholder="Hey Alex, let's connect to build awesome infrastructure..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Send Automated Ping</button>
+          </form>
+          
+          <div class="form-success" id="form-success">
+            <span class="success-icon">✓</span>
+            <h4>Ping Transmitted!</h4>
+            <p>Your message has been processed successfully. I'll get back to you shortly.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <p>&copy; 2026 Alex Mercer. Built from scratch. Containerized and CI/CD automated.</p>
+        <p class="footer-subtext">Powered by Jenkins, Docker, and AWS EC2.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script Link -->
+  <script type="module" src="./src/script.js"></script>
+</body>
+</html>

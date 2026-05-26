@@ -438,6 +438,18 @@ Here is a comprehensive dictionary explaining every critical command executed in
   ```
   *(Note: The `post` block in our Jenkinsfile automatically runs `docker image prune -f` after every build to actively prevent this error!)*
 
+### ❌ Error 5: Jenkins Built-In Node Shows "offline" (Red Cross)
+* **Symptom:** The Built-In Node displays a red cross and states `(offline)` in the left sidebar. Any triggered job remains stuck in the queue showing `Waiting for next available executor on Built-In Node`.
+* **Root Cause:** Jenkins' internal safety daemon automatically disables the node if the free disk space on `/var/lib/jenkins` or the temporary directory `/tmp` falls below **1.0 GB** (extremely common on AWS `t2.micro` instances).
+* **Fix:**
+  You can adjust or disable the monitoring threshold directly inside the Jenkins Web UI to bring the node back online immediately:
+  1. From the Jenkins Dashboard, navigate to **Manage Jenkins** > **Nodes**.
+  2. Click on the **Built-In Node** (or click the gear/configure icon next to it).
+  3. Click **Configure** on the left menu.
+  4. Scroll down to the **Node Properties** or search for **Disk space monitoring thresholds**.
+  5. Check **Disk space monitoring thresholds** and change the default threshold value from `1GiB` to a smaller size like `100MiB` or `0.1GiB` (or set it to ignore if needed for testing).
+  6. Click **Save**. The node status will refresh and automatically return to **Online** within a few seconds!
+
 ---
 
 ## 💼 Career Placement Assets (Resume & LinkedIn)

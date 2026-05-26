@@ -116,7 +116,7 @@ java -version
 
 # Add the Jenkins Debian Repository GPG key to verify package integrity
 sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
-  https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+  https://pkg.jenkins.io/debian-stable/jenkins.io-2026.key
 
 # Append the stable Jenkins repository to the source listing
 echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \

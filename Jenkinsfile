@@ -6,7 +6,7 @@ pipeline {
         DOCKERHUB_CREDENTIALS_ID = 'dockerhub-creds'
         
         // Define Docker Hub target image naming structure
-        DOCKER_IMAGE_NAME        = 'alexdevops/portfolio-app'
+        DOCKER_IMAGE_NAME        = 'preethamvs6/portfolio-app'
         
         // Target container configurations
         CONTAINER_NAME           = 'portfolio-web-server'

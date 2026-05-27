@@ -147,6 +147,23 @@ sudo systemctl status jenkins --no-pager
 
 ---
 
+### Phase 2.5: Node.js & npm Installation
+Since our declarative Jenkins pipeline compiles the frontend assets (`npm install` and `npm run build`), the server must have Node.js and npm installed:
+
+```bash
+# Update local package index
+sudo apt update
+
+# Install Node.js and npm
+sudo apt install nodejs npm -y
+
+# Verify installations
+node -v
+npm -v
+```
+
+---
+
 ### Phase 3: Docker Installation & Hardening
 Next, install the Docker Engine on the same host to package and host the application container:
 
